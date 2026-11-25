@@ -1,0 +1,14 @@
+#!/bin/bash
+# Abre TIDAL DJ: arranca el motor si hace falta y muestra la cabina de mezcla.
+PORT="${TIDAL_CONNECT_PORT:-47900}"
+URL="http://127.0.0.1:${PORT}/dj-app/"
+
+if ! systemctl --user is-active --quiet tidal-connect.service; then
+  systemctl --user start tidal-connect.service
+fi
+for _ in $(seq 1 50); do
+  curl -fs -o /dev/null "http://127.0.0.1:${PORT}/api/status" && break
+  sleep 0.2
+done
+
+exec omarchy-launch-webapp "$URL"

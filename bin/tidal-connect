@@ -1,0 +1,16 @@
+#!/bin/bash
+# Abre TIDAL Connect: arranca el motor si hace falta y muestra la ventana.
+PORT="${TIDAL_CONNECT_PORT:-47900}"
+URL="http://127.0.0.1:${PORT}/"
+
+if ! systemctl --user is-active --quiet tidal-connect.service; then
+  systemctl --user start tidal-connect.service
+fi
+
+# Espera (hasta 10 s) a que el motor responda.
+for _ in $(seq 1 50); do
+  curl -fs -o /dev/null "${URL}api/status" && break
+  sleep 0.2
+done
+
+exec omarchy-launch-webapp "$URL"

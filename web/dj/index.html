@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TIDAL DJ</title>
+  <link rel="icon" href="/assets/dj/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <link rel="stylesheet" href="/assets/dj/dj.css">
+</head>
+<body class="djapp">
+  <header class="dj-top" id="top"></header>
+  <main class="dj-main">
+    <section class="deckrow">
+      <div class="xdeck" id="deck-A" data-deck="A"></div>
+      <div class="mixer" id="mixer"></div>
+      <div class="xdeck" id="deck-B" data-deck="B"></div>
+    </section>
+    <section class="fxrow" id="fx"></section>
+    <section class="dj-lists">
+      <div class="dj-panel" id="lists-main"></div>
+      <div class="dj-panel"><div class="dj-panel-head">Han sonado</div><div id="history"></div></div>
+    </section>
+  </main>
+  <div id="menu" class="menu" hidden></div>
+  <div id="popover" class="popover" hidden></div>
+  <div id="toast" class="toast" hidden></div>
+  <script type="module" src="/assets/dj/dj.js"></script>
+</body>
+</html>

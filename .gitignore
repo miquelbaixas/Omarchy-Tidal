@@ -1,0 +1,13 @@
+# Entorno de Python (se recrea con ./install.sh)
+.venv/
+__pycache__/
+*.py[cod]
+
+# Configuración local de Claude Code (rutas de este ordenador)
+.claude/
+
+# Archivos temporales y secretos
+*.tmp
+*.log
+.env
+session.json
